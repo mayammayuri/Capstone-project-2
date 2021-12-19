@@ -9,7 +9,7 @@ actual_value=df['Close'].iloc[-1]
 start= actual_value - 5
 end = actual_value + 5
 
-loaded=ARIMAResults.load('adidas.pk')
+loaded=ARIMAResults.load('adidas.pkl')
 predictionss = loaded.forecast()
 print(predictionss)
 
