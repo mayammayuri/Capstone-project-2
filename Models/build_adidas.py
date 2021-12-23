@@ -23,8 +23,7 @@ import os
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 import pandas as pd
-dirname = os.path.dirname(__file__)
-df=pd.read_csv(os.path.join(dirname,'..',"Resources/ADDYY.csv"), sep=",")
+df=pd.read_csv("/home/mayuri/Documents/Capstone-project-2/Resources/ADDYY.csv", sep=",")
 df
 
 #In[5]
@@ -42,7 +41,7 @@ for time_point in range(N_test_observations):
     model_fit = model.fit()
     model_test_fit=model_test.fit()
     #fc,se,conf = model_fit.forecast()
-    output = model_fit.forecast()
+    output = model_fit.predict(start=len(df),end=(len(df)-1)+3,typ='levels')
     yhat = output[0]
     models.append(model_fit)
     model_predictions.append(int(yhat))
@@ -50,7 +49,7 @@ for time_point in range(N_test_observations):
     history.append(true_test_value)
 MSE_error = mean_squared_error(test_data, model_predictions)
 #print('Testing Mean Squared Error is {}'.format(MSE_error))
-
+print(output)
 
 # In[ ]:
 

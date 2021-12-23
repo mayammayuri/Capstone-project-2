@@ -22,8 +22,7 @@ import os
 
 
 import pandas as pd
-dirname = os.path.dirname(__file__)
-df=pd.read_csv(os.path.join(dirname,'..',"Resources/MARUTI.NS.csv"), sep=",")
+df=pd.read_csv("F:\sem 7\project\Capstone-project-2\Resources\MARUTI.NS.csv", sep=",")
 df
 
 
@@ -66,7 +65,7 @@ for time_point in range(N_test_observations):
     model_fit = model.fit()
     model_test_fit=model_test.fit()
     #fc,se,conf = model_fit.forecast()
-    output = model_fit.forecast()
+    output = model_fit.predict(start=len(df),end=(len(df)-1)+3,typ='levels')
     yhat = output[0]
     models.append(model_fit)
     model_predictions.append(int(yhat))
