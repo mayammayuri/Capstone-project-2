@@ -22,7 +22,9 @@ import os
 
 
 import pandas as pd
-df=pd.read_csv("/home/mayuri/Documents/Capstone-project-2/Resources/AAPL.csv", sep=",")
+
+dirname = os.path.dirname(__file__)
+df=pd.read_csv(os.path.join(dirname,'..',"Resources/AAPL.csv"), sep=",")
 df
 
 
@@ -83,7 +85,6 @@ import pickle
 
 # In[49]:
 
-from statsmodels.tsa.arima_model import ARIMAResults
 model_test_fit.save("apple.pkl")
 
 

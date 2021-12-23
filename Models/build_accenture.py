@@ -23,7 +23,8 @@ import os
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 import pandas as pd
-df=pd.read_csv("Resources/ACN.csv", sep=",")
+dirname = os.path.dirname(__file__)
+df=pd.read_csv(os.path.join(dirname,'..',"Resources/ACN.csv"), sep=",")
 df
 
 #In[5]

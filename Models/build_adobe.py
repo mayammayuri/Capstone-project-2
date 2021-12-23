@@ -23,7 +23,8 @@ import os
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 import pandas as pd
-df=pd.read_csv("Resources/ADBE.csv", sep=",")
+dirname = os.path.dirname(__file__)
+df=pd.read_csv(os.path.join(dirname,'..',"Resources/ADBE.csv"), sep=",")
 df
 
 #In[5]
@@ -55,5 +56,5 @@ MSE_error = mean_squared_error(test_data, model_predictions)
 
 from statsmodels.tsa.arima_model import ARIMAResults
 model_test_fit.save("adobe.pkl")
-print(len(df))
+
 
