@@ -48,6 +48,7 @@ df
 
 # In[7]:
 
+from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 train_data, test_data = df[0:int(len(df)*0.7)], df[int(len(df)*0.7):]
 training_data = train_data['Close'].values
@@ -59,8 +60,8 @@ model_predictions = []
 N_test_observations = len(test_data)
 models = []
 for time_point in range(N_test_observations):
-    model = ARIMA(history, order=(0,1,0))
-    model_test = ARIMA(testing_predictions,order=(0,1,0))
+    model = SARIMAX(history, order=(0,1,0),seasonal_order=(2,1,0,4))
+    model_test = SARIMAX(history, order=(0,1,0),seasonal_order=(2,1,0,4))
     model_fit = model.fit()
     model_test_fit=model_test.fit()
     #fc,se,conf = model_fit.forecast()
