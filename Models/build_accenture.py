@@ -23,7 +23,7 @@ import os
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 import pandas as pd
-df=pd.read_csv("Resources/ADBE.csv", sep=",")
+df=pd.read_csv("Resources/ACN.csv", sep=",")
 df
 
 #In[5]
@@ -54,6 +54,6 @@ MSE_error = mean_squared_error(test_data, model_predictions)
 # In[ ]:
 
 from statsmodels.tsa.arima_model import ARIMAResults
-model_test_fit.save("adobe.pkl")
+model_test_fit.save("accenture.pkl")
 print(len(df))
 

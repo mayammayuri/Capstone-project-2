@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+##!/usr/bin/env python
 # coding: utf-8
 
 # In[45]:
@@ -20,18 +20,42 @@ import os
 
 # In[4]:
 
-from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 import pandas as pd
-df=pd.read_csv("Resources/ADBE.csv", sep=",")
+df=pd.read_csv("Resources\PEP.csv", sep=",")
 df
 
-#In[5]
+
+# In[5]:
+
+
+#plt.figure()
+#lag_plot(df['Open'])
+#plt.title('Apple Stock - Autocorrelation plot with lag = 3')
+#plt.show()
+
+
+# In[6]:
+
+
+#plt.plot(df["Date"], df["Close"])
+#plt.xticks(np.arange(0,1259, 200), df['Date'][0:1259:200])
+#plt.title("Apple stock price over time")
+#plt.xlabel("time")
+#plt.ylabel("price")
+#plt.show()
+
+
+# In[7]:
+
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
 train_data, test_data = df[0:int(len(df)*0.7)], df[int(len(df)*0.7):]
 training_data = train_data['Close'].values
 test_data = test_data['Close'].values
 history = [x for x in training_data]
 testing_predictions= [x for x in test_data]
+
 model_predictions = []
 N_test_observations = len(test_data)
 models = []
@@ -53,7 +77,8 @@ MSE_error = mean_squared_error(test_data, model_predictions)
 
 # In[ ]:
 
-from statsmodels.tsa.arima_model import ARIMAResults
-model_test_fit.save("adobe.pkl")
-print(len(df))
 
+import pickle
+
+from statsmodels.tsa.arima_model import ARIMAResults
+model_test_fit.save("pepsi.pkl") 
