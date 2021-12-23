@@ -22,7 +22,7 @@ import os
 
 
 import pandas as pd
-df=pd.read_csv("F:\sem 7\project\Capstone-project-2\Resources\TVSMOTOR.NS.csv", sep=",")
+df=pd.read_csv("F:\sem 7\project\Capstone-project-2\Resources\MARUTI.NS.csv", sep=",")
 df
 
 
@@ -80,4 +80,4 @@ MSE_error = mean_squared_error(test_data, model_predictions)
 import pickle
 
 from statsmodels.tsa.arima_model import ARIMAResults
-model_test_fit.save("tvsmotors.pkl") 
+model_test_fit.save("maruti.pkl") 
