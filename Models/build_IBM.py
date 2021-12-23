@@ -23,7 +23,7 @@ import os
 
 import pandas as pd
 dirname = os.path.dirname(__file__)
-df=pd.read_csv(os.path.join(dirname,'..',"Resources/IBM.csv", sep=","))
+df=pd.read_csv(os.path.join(dirname,'..',"Resources/IBM.csv"), sep=",")
 df
 
 
