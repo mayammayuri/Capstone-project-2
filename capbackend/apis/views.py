@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from statsmodels.tsa.statespace import sarimax
-import datetime
-# Create your views here.
+
+
 def apple_stock_api(request):
     loaded=sarimax.SARIMAXResultsWrapper.load('apis/arimaModels/apple.pkl')
-    predictions = loaded.predict(start=83,end=(85)+3,typ='levels')
+    predictions = loaded.predict(start=80,end=(85)+3,typ='levels')
     print(predictions)
-    return JsonResponse({'predictions':list(predictions),'accuracy':'96%','current_price':'$158','predicted_price':'$159'})
+    data={'predictions':list(predictions),'accuracy':'96%','current_price':'$158','predicted_price':'$159', 'labels':['September 2021','October 2021','November 2021','December 2021','January 2022','Feburary 2022','March 2022'],'cur':'$'}
+    return JsonResponse(data)
 
 def adidas_stock_api(request):
     loaded=sarimax.SARIMAXResultsWrapper.load('apis/arimaModels/adidas.pkl')
