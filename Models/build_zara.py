@@ -22,7 +22,7 @@ import os
 
 
 import pandas as pd
-df=pd.read_csv("zara dataset.csv", sep=",")
+df=pd.read_csv("/home/mayuri/Documents/Capstone-project-2/Resources/zara dataset.csv", sep=",")
 df
 
 

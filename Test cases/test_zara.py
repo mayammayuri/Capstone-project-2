@@ -4,14 +4,16 @@ import pickle
 #import modelapple
 import pandas as pd
 from statsmodels.tsa.arima.model import ARIMAResults
-df=pd.read_csv("zara dataset.csv", sep=",")
+df=pd.read_csv("/home/mayuri/Documents/Capstone-project-2/Resources/zara dataset.csv", sep=",")
 actual_value=df['Close'].iloc[-1]
 start= actual_value - 5
 end = actual_value + 5
 
-loaded=ARIMAResults.load('zara.pkl')
+loaded=ARIMAResults.load('/home/mayuri/Documents/Capstone-project-2/Models/zara.pkl')
 predictionss = loaded.forecast()
 print(predictionss)
+
+
 
 #result = mp.score(df)
 #print(result)

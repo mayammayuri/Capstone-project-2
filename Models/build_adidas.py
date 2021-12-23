@@ -22,7 +22,7 @@ import os
 
 
 import pandas as pd
-df=pd.read_csv("ADDYY.csv", sep=",")
+df=pd.read_csv("/home/mayuri/Documents/Capstone-project-2/Resources/ADDYY.csv", sep=",")
 df
 
 

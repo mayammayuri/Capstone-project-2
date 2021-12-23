@@ -4,12 +4,12 @@ import pickle
 #import modelapple
 import pandas as pd
 from statsmodels.tsa.arima.model import ARIMAResults
-df=pd.read_csv("ADDYY.csv", sep=",")
+df=pd.read_csv("/home/mayuri/Documents/Capstone-project-2/Resources/ADDYY.csv", sep=",")
 actual_value=df['Close'].iloc[-1]
 start= actual_value - 5
 end = actual_value + 5
 
-loaded=ARIMAResults.load('adidas.pkl')
+loaded=ARIMAResults.load('/home/mayuri/Documents/Capstone-project-2/Models/adidas.pkl')
 predictionss = loaded.forecast()
 print(predictionss)
 
