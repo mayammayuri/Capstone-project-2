@@ -1,6 +1,7 @@
-FROM python:3.8
+FROM python:3.9.6
 RUN mkdir /home/app
 COPY . /home/app/capback
-RUN pip install django
+WORKDIR /home/app/capback
+RUN pip install -r requirements.txt
 EXPOSE 8000
 CMD ["python","manage.py","runserver"]
