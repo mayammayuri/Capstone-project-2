@@ -5,22 +5,22 @@ from statsmodels.tsa.statespace import sarimax
 
 def apple_stock_api(request):
     loaded=sarimax.SARIMAXResultsWrapper.load('apis/arimaModels/apple.pkl')
-    predictions = loaded.predict(start=80,end=(85)+3,typ='levels')
+    predictions = loaded.predict(start=77,end=(85)+3,typ='levels')
     print(predictions)
-    data={'predictions':list(predictions),'accuracy':'96%','current_price':'$158','predicted_price':'$159', 'labels':['September 2021','October 2021','November 2021','December 2021','January 2022','Feburary 2022','March 2022'],'cur':'$'}
+    data={'predictions':list(predictions),'accuracy':'94%','labels':['April 2021','May 2021','June 2021','July 2021','August 2021','September 2021','October 2021','November 2021','December 2021','January 2022','Feburary 2022','March 2022'],'cur':'$', 'name':'Apple/APL', 'current_price':'$167.76', 'predicted_price':'$175.47', 'up_down_current':'fas fa-arrow-up text-success', 'up_down_predicted':'fas fa-arrow-up text-success', 'up_down_current_since':'$6.66', 'predicted_current':'4.39%'}
     return JsonResponse(data)
 
 def adidas_stock_api(request):
     loaded=sarimax.SARIMAXResultsWrapper.load('apis/arimaModels/adidas.pkl')
-    predictions = loaded.predict(start=83,end=(85)+3,typ='levels')
-    print(len(predictions))
-    return JsonResponse({'predictions':list(predictions),'accuracy':'87%','current_price':'$56','predicted_price':'$60','labels':['October 2021','November 2021','December 2021','January 2022','Feburary 2022','March 2022']})
+    predictions = loaded.predict(start=77,end=(85)+3,typ='levels')
+    data={'predictions':list(predictions),'accuracy':'96%','labels':['April 2021','May 2021','June 2021','July 2021','August 2021','September 2021','October 2021','November 2021','December 2021','January 2022','Feburary 2022','March 2022'],'cur':'$', 'name':'Adidas'}
+    return JsonResponse(data)
 
 def zara_stock_api(request):
     loaded=sarimax.SARIMAXResultsWrapper.load('apis/arimaModels/zara.pkl')
-    predictions = loaded.predict(start=83,end=(85)+3,typ='levels')
-    print(predictions)
-    return JsonResponse({'predictions':list(predictions),'accuracy':'93%','current_price':'$130','predicted_price':'$127','labels':['October 2021','November 2021','December 2021','January 2022','Feburary 2022','March 2022']})
+    predictions = loaded.predict(start=77,end=(85)+3,typ='levels')
+    data={'predictions':list(predictions),'accuracy':'96%','labels':['April 2021','May 2021','June 2021','July 2021','August 2021','September 2021','October 2021','November 2021','December 2021','January 2022','Feburary 2022','March 2022'],'cur':'$', 'name':'Zara'}
+    return JsonResponse(data)
 
 def facebook_stock_api(request):
     loaded=sarimax.SARIMAXResultsWrapper.load('apis/arimaModels/fb.pkl')
